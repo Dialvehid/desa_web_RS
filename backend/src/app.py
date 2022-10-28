@@ -90,7 +90,7 @@ def listar_usuariobyname(nombre):
         datos=cursor.fetchall()
         data=[]
         if (datos==()):
-            return Response(response=jsonify({'error':"usuario no encontrado"}),status=404)
+            return Response(response="error:usuario no encontrado",status=404)
         for fila in datos:
             usuario = {'id':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
             data.append(usuario)
@@ -108,7 +108,7 @@ def listar_usuariobynick(nick):
         datos=cursor.fetchall()
         data=[]
         if (datos==()):
-            return Response(response=jsonify({'error':"usuario no encontrado"}),status=404)
+            return Response(response="error:usuario no encontrado",status=404)
         for fila in datos:
             usuario = {'id':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
             data.append(usuario)
@@ -126,7 +126,7 @@ def listar_usuariobymail(mail):
         datos=cursor.fetchall()
         data=[]
         if (datos==()):
-            return Response(response=jsonify({'error':"usuario no encontrado"}),status=404)
+            return Response(response="error:usuario no encontrado",status=404)
         for fila in datos:
             usuario = {'id':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
             data.append(usuario)
