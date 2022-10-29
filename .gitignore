@@ -44,5 +44,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Exclusiones de carpetas de python
 ./backend/env/*
 ./backend/src/__pycache__/*
