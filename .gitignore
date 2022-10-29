@@ -45,5 +45,5 @@ testem.log
 Thumbs.db
 
 # Exclusiones de carpetas de python
-./backend/env/*
-./backend/src/__pycache__/*
+backend/env/*
+backend/src/__pycache__/*
