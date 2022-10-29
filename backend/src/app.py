@@ -58,7 +58,7 @@ def usuarioDetalle(_id):
         return []
     else:
         for fila in datos:
-            usuario={'idusr':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'pass':fila[5]}
+            usuario={'idusr':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'pswd':fila[5]}
         return jsonify(usuario).json
 ### /DEFINICIONES  GLOBALES ###
 
@@ -76,7 +76,7 @@ def listar_usuario():
         if (datos==()):
             return Response(response="Sin usuarios jeje",status=404)
         for fila in datos:
-            usuario = {'id':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
+            usuario = {'idusr':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
             data.append(usuario)
         return jsonify(data) 
     except Exception as ex:
@@ -95,7 +95,7 @@ def listar_usuariobyname(nombre):
         if (datos==()):
             return Response(response="error:usuario no encontrado",status=404)
         for fila in datos:
-            usuario = {'id':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
+            usuario = {'idusr':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
             data.append(usuario)
         return jsonify(data) 
     except Exception as ex:
@@ -114,7 +114,7 @@ def listar_usuariobynick(nick):
         if (datos==()):
             return Response(response="error:usuario no encontrado",status=404)
         for fila in datos:
-            usuario = {'id':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
+            usuario = {'idusr':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
             data.append(usuario)
         return jsonify(data) 
     except Exception as ex:
@@ -133,7 +133,7 @@ def listar_usuariobymail(mail):
         if (datos==()):
             return Response(response="error:usuario no encontrado",status=404)
         for fila in datos:
-            usuario = {'id':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
+            usuario = {'idusr':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
             data.append(usuario)
         return jsonify(data) 
     except Exception as ex:
@@ -152,7 +152,7 @@ def listar_usuariobyid(id):
         if (datos==()):
             return Response(response="usuario no encontrado",status=404)
         for fila in datos:
-            usuario = {'id':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
+            usuario = {'idusr':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'img':fila[5],'pswd':fila[6]}
             data.append(usuario)
         return jsonify(data) 
     except Exception as ex:
@@ -223,7 +223,7 @@ def postList():
             megusta=megustas(str(fila[0]))
             useri=usuarioDetalle(str(fila[1]))
             segusta=validaSeGusta(str(fila[0]),str(fila[1]))
-            post = {'texto':fila[2],'fecha':str(fila[3]),'imagen':fila[4],'megusta':megusta,'usuario':useri,'segusta':segusta}
+            post = {'idpst':fila[0],'texto':fila[2],'fecha':str(fila[3]),'imagen':fila[4],'megusta':megusta,'usuario':useri,'megusto':segusta}
             data.append(post)
         
         return jsonify({'posts': data})
