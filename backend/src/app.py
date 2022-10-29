@@ -223,7 +223,7 @@ def postList():
             megusta=megustas(str(fila[0]))
             useri=usuarioDetalle(str(fila[1]))
             segusta=validaSeGusta(str(fila[0]),str(fila[1]))
-            post = {'idpst':fila[0],'texto':fila[2],'fecha':str(fila[3]),'imagen':fila[4],'megusta':megusta,'usuario':useri,'megusto':segusta}
+            post = {'idpst':fila[0],'contenido':fila[2],'fecha':str(fila[3]),'img':fila[4],'meGusta':megusta,'usuario':useri,'meGusto':segusta}
             data.append(post)
         
         return jsonify({'posts': data})
