@@ -166,21 +166,21 @@ def newUser():
         cursor=conexion.connection.cursor()
         rqData=request.get_json()
         if(request.method=='POST'):
-            user.nombre=rqData['nombres']
+            user.nombre=rqData['nombre']
             user.apodo=rqData['apodo']
-            user.fecha=rqData['fecha']
-            user.email=rqData['email']
+            user.fecha=rqData['fechanac']
+            user.email=rqData['correo']
             user.img=rqData['img']
-            user.password=rqData['password']
+            user.password=rqData['pswd']
             query="INSERT INTO USRS (nombre, apodo, fechanac,correo,imgperf,pass) VALUES('"+user.nombre+"','"+user.apodo+"','"+user.fecha+"','"+user.email+"','"+user.img+"','"+user.password+"')"
         elif(request.method=='PUT' and existe(str(rqData['idusr']))):
             user.id=rqData['idusr']
-            user.nombre=rqData['nombres']
+            user.nombre=rqData['nombre']
             user.apodo=rqData['apodo']
-            user.fecha=rqData['fecha']
-            user.email=rqData['email']
+            user.fecha=rqData['fechanac']
+            user.email=rqData['correo']
             user.img=rqData['img']
-            user.password=rqData['password']
+            user.password=rqData['pswd']
             query="UPDATE USRS SET nombre='"+user.nombre+"', apodo='"+user.apodo+"', fechanac='"+user.fecha+"',correo='"+user.email+"',imgperf='"+user.img+"',pass='"+user.password+"'" 
             query=query+"WHERE idusr="+str(user.id)
         else:
@@ -211,7 +211,7 @@ def newPost():
 
 # Listado de post
 @app.route('/post', methods=['GET'])
-@cross_origin
+@cross_origin()
 def postList():
     try:
         cursor=conexion.connection.cursor()
