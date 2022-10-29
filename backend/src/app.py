@@ -2,12 +2,13 @@
 from flask import Flask, jsonify, request
 from flask import Response
 from flask_mysqldb import MySQL
-from model import post, user
+from flask_cors import CORS, cross_origin
+from model import user
 from config import config
-from datetime import date
 
 ### DEFINICIONES GLOBALES ###
 app = Flask(__name__)
+cors = CORS(app)
 conexion=MySQL(app)
 
 # Validacion de exitencia de usuario
@@ -59,11 +60,12 @@ def usuarioDetalle(_id):
         for fila in datos:
             usuario={'idusr':fila[0],'nombre':fila[1],'apodo':fila[2],'fechanac':fila[3],'correo':fila[4],'pass':fila[5]}
         return jsonify(usuario).json
-
+### /DEFINICIONES  GLOBALES ###
 
 ### USUARIO CONTROLLER ###
 # Endpoint listado de usuarios
 @app.route('/usuarios', methods=['GET'])
+@cross_origin()
 def listar_usuario():
     try:
         cursor=conexion.connection.cursor()
@@ -82,6 +84,7 @@ def listar_usuario():
 
 # Busqueda de usuario por nombre
 @app.route('/usuario/name/<nombre>', methods=['GET'])
+@cross_origin()
 def listar_usuariobyname(nombre):
     try:
         cursor=conexion.connection.cursor()
@@ -96,10 +99,11 @@ def listar_usuariobyname(nombre):
             data.append(usuario)
         return jsonify(data) 
     except Exception as ex:
-        return Response(response="Error: Error interno"+ ex ,status=500)
+        return Response(response="Error: Error interno"+ str(ex) ,status=500)
 
 # Busqueda de usuario por apodo
 @app.route('/usuario/nick/<nick>', methods=['GET'])
+@cross_origin()
 def listar_usuariobynick(nick):
     try:
         cursor=conexion.connection.cursor()
@@ -114,10 +118,11 @@ def listar_usuariobynick(nick):
             data.append(usuario)
         return jsonify(data) 
     except Exception as ex:
-        return Response(response="Error: Error interno"+ ex ,status=500)
+        return Response(response="Error: Error interno"+ str(ex) ,status=500)
 
 # Busqueda de usuario por correo
 @app.route('/usuario/mail/<mail>', methods=['GET'])
+@cross_origin()
 def listar_usuariobymail(mail):
     try:
         cursor=conexion.connection.cursor()
@@ -136,6 +141,7 @@ def listar_usuariobymail(mail):
 
 # Busqueda de usuario por id
 @app.route('/usuario/id/<id>', methods=['GET'])
+@cross_origin()
 def listar_usuariobyid(id):
     try:
         cursor=conexion.connection.cursor()
@@ -154,6 +160,7 @@ def listar_usuariobyid(id):
 
 # Creacion/actualizacion de usuario
 @app.route('/usuario', methods=['POST','PUT'])
+@cross_origin()
 def newUser():
     try:
         cursor=conexion.connection.cursor()
@@ -182,7 +189,7 @@ def newUser():
         conexion.connection.commit()
         return jsonify()
     except Exception as ex:
-        return Response(response="Error: Error interno"+ ex ,status=500)
+        return Response(response="Error: Error interno"+ str(ex) ,status=500)
 
 ### /USUARIO CONTROLLER ###
 
@@ -190,6 +197,7 @@ def newUser():
 
 # Creacion de post
 @app.route('/post', methods=['POST'])
+@cross_origin()
 def newPost():
     try:
         cursor=conexion.connection.cursor()
@@ -199,10 +207,11 @@ def newPost():
         conexion.connection.commit()
         return jsonify()
     except Exception as ex:
-        return Response(response="Error: Error interno"+ ex ,status=500)
+        return Response(response="Error: Error interno"+ str(ex) ,status=500)
 
 # Listado de post
 @app.route('/post', methods=['GET'])
+@cross_origin
 def postList():
     try:
         cursor=conexion.connection.cursor()
@@ -210,7 +219,6 @@ def postList():
         cursor.execute(query)
         datos=cursor.fetchall()
         data=[]
-
         for fila in datos:
             megusta=megustas(str(fila[0]))
             useri=usuarioDetalle(str(fila[1]))
@@ -220,12 +228,13 @@ def postList():
         
         return jsonify({'posts': data})
     except Exception as ex:
-        return Response(response=jsonify({'error':ex}),status=500)
+        return Response(response=str(ex),status=500)
 
 ### /POST CONTROLLER
 
 ### REACCION CONTROLLER
 @app.route('/react', methods=['GET'])
+@cross_origin()
 def reaccion():
     try:
         cursor=conexion.connection.cursor()
@@ -240,7 +249,7 @@ def reaccion():
         conexion.connection.commit()
         return jsonify()
     except Exception as ex:
-        return Response(response="Error: Error interno"+ ex ,status=500)
+        return Response(response="Error: Error interno"+ str(ex) ,status=500)
 
 ### /REACCION CONTROLLER
 
