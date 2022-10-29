@@ -233,7 +233,7 @@ def postList():
 ### /POST CONTROLLER
 
 ### REACCION CONTROLLER
-@app.route('/react', methods=['GET'])
+@app.route('/react', methods=['POST'])
 @cross_origin()
 def reaccion():
     try:
