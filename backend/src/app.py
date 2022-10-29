@@ -202,7 +202,7 @@ def newPost():
     try:
         cursor=conexion.connection.cursor()
         rqData=request.get_json()
-        query="INSERT INTO POST (idusr, texto, fecha,img) VALUES("+str(rqData['usuario'])+",'"+rqData['texto']+"','"+rqData['fecha']+"','"+rqData['img']+"')"
+        query="INSERT INTO POST (idusr, texto, fecha,img) VALUES("+str(rqData['idusr'])+",'"+rqData['contenido']+"','"+rqData['fecha']+"','"+rqData['img']+"')"
         cursor.execute(query)
         conexion.connection.commit()
         return jsonify()
