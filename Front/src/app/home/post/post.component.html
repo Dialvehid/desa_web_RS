@@ -1,0 +1,46 @@
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
+    <div class="modal" tabindex="-1" role="dialog" style="display: block;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crear post</h5>
+                    <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Contenido</mat-label>
+                                    <textarea matInput [(ngModel)]="nuevoPost.contenido"></textarea>
+                                </mat-form-field>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input (change)="seleccionarFoto($event)" type="file" class="custom-file-input"
+                                            id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                                        <label class="custom-file-label" for="inputGroupFile04">Seleccionar foto</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button (click)="subirPost()" [disabled]="!fotoSeleccionada"
+                            class="btn btn-success" type="button"
+                            id="inputGroupFileAddon04">Subir</button>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button (click)="cerrarModal()" type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

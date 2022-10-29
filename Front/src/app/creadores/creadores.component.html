@@ -1,63 +1,82 @@
-<html>
-<body>
-    
-    <div class="container">
-        <div class="col-md-12 text-center my-auto">
-            <p class="h1">Creadores de SpaceTime</p><br><br>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/landing">{{ titulo }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
+            aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+            <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/creadores">Creadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.umg.edu.gt/">Universidad</a>
+                </li>
+            </ul>
         </div>
+    </div>
+</nav>
 
-        <main class="row mb-4">
-            <div class="col-md-4 text-center my-auto">
-                <img src="./assets/harry.jpg" class="img-fluid rounded-circle">
-                <h2 class="font-weight-bolder ">Harry Enrique Molina Veliz</h2>
-                <h3>hmolinav1@miumg.edu.gt</h3>
-                <h3>0900-19-11417</h3>
+<html>
+
+<body>
+
+    <div class="container my-3 pb-5">
+
+        <div class="container">
+            <div class="col-md-12 text-center my-auto ">
+                <p class="h1">Creadores de SpaceTime</p><br><br>
             </div>
-                <div class="col-md-4 text-center my-auto">
+
+            <main class="row mb-4">
+                <div class="col-md-4 text-center my-auto shadow">
+                    <img src="./assets/harry.jpg" class="img-fluid rounded-circle">
+                    <h2 class="font-weight-bolder ">Harry Enrique Molina Veliz</h2>
+                    <h3>hmolinav1@miumg.edu.gt</h3>
+                    <h3>0900-19-11417</h3>
+                </div>
+                <div class="col-md-4 text-center my-auto shadow">
                     <img src="./assets/marcos.jpg" class="img-fluid rounded-circle">
-                <h2 class="font-weight-bolder">Marcos Emilio Velásquez Hidalgo</h2>
-                <h3>mvelasquezh4@miumg.edu.gt</h3>
-                <h3>0900-19-10535</h3>
-            </div>
-            <div class="col-md-4 text-center my-auto">
-                <img src="./assets/diego.jpg" class="img-fluid rounded-circle">
-                <h2 class="font-weight-bolder">Diego Alejandro Velásquez Hidalgo</h2 >
-                <h3>dvelasquezh1@miumg.edu.gt</h3>
-                <h3>0900-17-262</h3>
-            </div>
+                    <h2 class="font-weight-bolder">Marcos Emilio Velásquez Hidalgo</h2>
+                    <h3>mvelasquezh4@miumg.edu.gt</h3>
+                    <h3>0900-19-10535</h3>
+                </div>
+                <div class="col-md-4 text-center my-auto shadow">
+                    <img src="./assets/diego.jpg" class="img-fluid rounded-circle">
+                    <h2 class="font-weight-bolder">Diego Alejandro Velásquez Hidalgo</h2>
+                    <h3>dvelasquezh1@miumg.edu.gt</h3>
+                    <h3>0900-17-262</h3>
+                </div>
 
-        </main>
+            </main>
+        </div>
+        <!-- <div class="container">
+            <main class="row mb-5">
+                <div class="col-md-4 text-center my-auto shadow">
+                    <img src="./assets/emilio.jpg" class="img-fluid rounded-circle">
+                    <h2 class="font-weight-bolder">Emilio Benjamín Con Navarro</h2>
+                    <h3>econn@miumg.edu.gt</h3>
+                    <h3>0900-19-5983</h3>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="./assets/Space.png" id="main-image">
+                </div>
+                <div class="col-md-4 text-center my-auto shadow">
+                    <img src="./assets/fatima.jpg" class="img-fluid rounded-circle">
+                    <h2 class="font-weight-bolder">Fátima Odemi Samayoa Guerra</h2>
+                    <h3>fsamayoag1@miumg.edu.gt</h3>
+                    <h3>0900-19-281</h3>
+                </div>
+            </main>
+        </div> -->
+        <div class="col-md-12 text-center">
+            <span>
+                © 2022 SpaceTime, Inc.
+            </span>
+        </div>
     </div>
-    <div class="container">
-        <main class="row mb-5">
-            <div class="col-md-4 text-center my-auto">
-                <img src="./assets/mula.jpg" class="img-fluid rounded-circle">
-                <h2 class="font-weight-bolder">Emilio Benjamín Con Navarro</h2>
-                <h3>econn@miumg.edu.gt</h3>
-                <h3>0900-19-5983</h3>
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="./assets/Space.png" id="main-image">
-            </div>
-            <div class="col-md-4 text-center my-auto">
-                <img src="./assets/fatima.jpg" class="img-fluid rounded-circle">
-                <h2 class="font-weight-bolder">Fátima Odemi Samayoa Guerra</h2>
-                <h3>fsamayoag1@miumg.edu.gt</h3>
-                <h3>0900-19-281</h3>
-            </div>
-        </main>
-    </div>
-    <div class="col-md-12 text-center">
-        <span>
-            © 2022 SpaceTime, Inc.
-        </span>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
