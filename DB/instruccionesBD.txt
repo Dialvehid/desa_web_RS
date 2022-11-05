@@ -1,0 +1,5 @@
+instrucciones base de datos
+-instalar mysql
+-crear un usuario segun el archivo USUARIO.TXT
+-crear una nueva base de datos llamada 'SpacetimeDB'
+-dentro de la nueva base de datos creada, utilizar el script contenido en el archivo 'Creacion.sql' para crear las tablas necesarias

@@ -1,0 +1,16 @@
+Instrucciones para correr el backend
+-Instalar python 3.10 en el equipo
+-verificar los parametros de conexion con db en .\backend\src\config.py
+-en el directorio 'backend' crear una carpeta llamada 'env' para contener el entorno virtual
+-una vez creada la carpeta, acceder a ella y ejecutar powershell en ese directorio
+-una vez este seguro de estar en el directorio, ejecutar el comando: (creara un nuevo entorno virtual en la carpeta actual)
+    python -m venv .
+-una vez creado el directorio ejecutar el siguiente comando en powershell: 
+    .\Sripts\Activate.ps1
+-una vez activo el entorno, regresar al directorio padre y ejecutar el siguiente comando en powershell: (con esto se instalaran los requerimientos del proyecto)
+    pip install -r .\requirements
+-siempre asegurandose de tener el entorno activo ejecutar el proyecto mediante:
+    python .\src\app.py
+-para detener la ejecucion se interrumpe con ctrl + c
+-para salir del entorno de python se ejecuta el siguiente comando en powershell
+    deactivate
