@@ -1,0 +1,7 @@
+- Instalar NodeJS.
+- Instalar TypeScript.
+- Instalar Angular CLI.
+
+- Ejecutar comando "npm install" en el root del Frontend (Misma ruta de este archivo).
+- Ejecutar comando "ng serve".
+- Asegurarse de tener disponible la base de datos y backend.
