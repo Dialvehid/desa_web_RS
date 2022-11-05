@@ -1,10 +1,11 @@
 import { Usuario } from "../login/usuario";
 
 export class Post {
-    id: number | undefined;
-    usuario: Usuario | undefined;
-    contenido: string | undefined;
-    meGusta: number[] | undefined;
-    fecha: string | undefined;
+    id: number;
+    usuario: Usuario;
+    contenido: string;
+    meGusta: string[];
+    img: string;
+    fecha: string;
     meGusto?: boolean;
 }

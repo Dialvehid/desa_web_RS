@@ -1,0 +1,1 @@
+export const POST_SUCCESS : string = 'Subido con exito';

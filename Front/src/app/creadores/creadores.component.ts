@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CreadoresComponent implements OnInit {
 
   constructor() { }
-
+  titulo: string = "SpaceTime";
   ngOnInit(): void {
   }
 

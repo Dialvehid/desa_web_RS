@@ -15,14 +15,20 @@ import { LandingComponent } from './landing/landing.component';
 import { CreadoresComponent } from './creadores/creadores.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { AuthGuard } from './login/guards/auth.guard';
+import { BuscadorComponent } from './buscador/buscador.component';
+import { FormsModule } from '@angular/forms';
+import { PostComponent } from './home/post/post.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'perfil', component: PerfilComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'perfil/:id', component: PerfilComponent, canActivate: [AuthGuard]},
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'landing', component: LandingComponent },
-  { path: 'creadores', component: CreadoresComponent }
+  { path: 'creadores', component: CreadoresComponent },
+  { path: 'buscador', component: BuscadorComponent }
 ]
 
 @NgModule({
@@ -33,7 +39,9 @@ const routes: Routes = [
     LoginComponent,
     PerfilComponent,
     LandingComponent,
-    CreadoresComponent
+    CreadoresComponent,
+    BuscadorComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,9 @@ const routes: Routes = [
     MatNativeDateModule,
     MatButtonModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FormsModule,
+    MatFormFieldModule
   ],
   providers: [
     {
